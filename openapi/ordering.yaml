@@ -11,8 +11,47 @@ servers:
     url: "https://api.algashop.com"
 
 paths:
-  /test:
+  /api/v1/customres:
+    post:
+      description: Register new customer
+      tags:
+        - Customers
     get:
-      responses:
-        '200':
-          description: OK
+      description: List customers
+      tags:
+        - Customers
+
+  /api/v1/customres/{customerId}:
+    get:
+      parameters:
+        - schema:
+            type: string
+          name: customerId
+          in: path
+          required: true
+          example: "4f8c1c7e-3a22-47b1-8e5a-33a468b5a0a1"
+      description: Get one customer by ID
+      tags:
+        - Customers
+    put:
+      parameters:
+        - schema:
+            type: string
+          name: customerId
+          in: path
+          required: true
+          example: "4f8c1c7e-3a22-47b1-8e5a-33a468b5a0a1"
+      description: Edit customer
+      tags:
+        - Customers
+    delete:
+      parameters:
+        - schema:
+            type: string
+          name: customerId
+          in: path
+          required: true
+          example: "4f8c1c7e-3a22-47b1-8e5a-33a468b5a0a1"
+      description: Delete costumer
+      tags:
+        - Customers
